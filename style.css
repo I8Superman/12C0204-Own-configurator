@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+#configurator {
+  display: grid;
+  grid-template-areas:
+    "product options"
+    "features features";
+  gap: 1em;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+#product-preview {
+  grid-area: product;
+  position: relative;
+  transition: opacity ease-in 0.5s;
+}
+
+#product-preview img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 2rem;
+  left: 0;
+}
+
+[data-feature="beanie"] {
+  max-width: 50%;
+  margin-top: -15%;
+  margin-left: 11%;
+}
+
+[data-feature="pirate"] {
+  max-width: 70%;
+  margin-top: -18%;
+}
+
+[data-feature="metalHair"] {
+  max-width: 70%;
+  margin-top: -15%;
+  margin-left: -5%;
+}
+
+[data-feature="radio"] {
+  max-width: 80%;
+  margin-top: 65%;
+  margin-left: 10%;
+}
+
+[data-feature="guitar"] {
+  margin-top: 30%;
+  margin-left: 10%;
+}
+
+[data-feature="bird"] {
+  max-width: 30%;
+  margin-top: 15%;
+}
+
+#product-preview .hide {
+  opacity: 0;
+}
+
+#product-preview img.figure {
+  position: relative;
+  width: 70%;
+}
+
+#options {
+  grid-area: options;
+  /* margin-top: -5rem; */
+  box-shadow: 3px 3px 8px #ddd;
+  border-radius: 1em;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#options .option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1em;
+  color: #aaa;
+}
+
+#options .option:hover {
+  background-color: rgb(235, 226, 226);
+  cursor: pointer;
+}
+
+#options .option.chosen {
+  text-decoration: underline;
+  color: #000;
+}
+
+#options .option img {
+  width: 7vw;
+  height: auto;
+}
+
+#options .option figcaption {
+  font-size: 20px;
+}
+
+#selected {
+  grid-area: "features";
+  margin-top: 1rem;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+#selected ul {
+  list-style-type: none;
+  display: flex;
+}
+
+#selected ul li {
+  display: inline-block;
+  margin: 0px;
+  padding: 0px;
+}
+
+#selected ul li img {
+  width: 4em;
+}
+
+/* Animation classes */
+
+.animate-feature-in {
+    /* : Create animation for adding a feature */
+    animation: animate-in 1.2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes animate-in {
+    0% {
+        transform: translate(var(--diffX), var(--diffY));
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.animate-feature-out {
+    /* : Create animation for adding a feature */
+    animation: animate-out 1.2s;
+    animation-iteration-count: 1;
+}
+
+@keyframes animate-out {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(var(--diffX), var(--diffY));
+        opacity: 0;
+    }
+}
